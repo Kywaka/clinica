@@ -1,0 +1,61 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nome:</td>
+                <td>Login:</td>
+                <td>Senha:</td>
+                <td>Cargo:</td>
+                <td>Salario:</td>
+                <td>Cpf:</td>
+                <td>Endereço:</td>
+                <td>Telefone:</td>
+                <td>Telefone Opcional</td>
+                <td>Email</td>
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($funcionarios)):
+     foreach($funcionarios as $func):?>
+            <tr>
+                <td><?php echo $func->nome?></td>
+                <td><?php echo $func->login?></td>
+                <td><?php echo $func->senha?></td>
+                <td><?php echo $func->cargo?></td>
+                <td><?php echo $func->salario?></td>
+                <td><?php echo $func->cpf?></td>
+                <td><?php echo $func->endereco?></td>
+                <td><?php echo $func->telefone1?></td>
+                <td><?php echo $func->telefone2?></td>
+                <td><?php echo $func->email?></td>
+                <td>
+                    <a href="/funcionario/editar/<?php echo $func->id;?>"><i class="icon-pencil"></i>
+                    <a href="/funcionario/remover/<?php echo $func->id;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há Funcionário Cadastrado!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($funcionarios, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>

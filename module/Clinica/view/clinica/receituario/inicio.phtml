@@ -1,0 +1,51 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>obs:</td>
+                <td>Medicação:</td>
+                <td>Dentista:</td> 
+                <td>Paciente:</td> 
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($receituarios)):
+     foreach($receituarios as $rec):?>
+            <tr>
+                <td><?php echo $rec->obs?></td>
+                <td><?php echo $rec->medicacao?></td>
+                <td><?php echo $rec->nome_dentista?></td>
+                <td><?php echo $rec->nome_paciente?></td>
+                
+                <td>
+                    <a href="/receituario/editar/<?php echo $rec->id;?>"><i class="icon-pencil"></i>
+                    <a href="/receituario/remover/<?php echo $rec->id;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há receituario Cadastrado!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($receituarios, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>
+

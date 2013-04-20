@@ -1,0 +1,59 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Data de Nascimento</td>
+                <td>Cpf</td>
+                <td>Endereço</td>
+                <td>Forma de Pagamento</td>
+                <td>Telefone</td>
+                <td>Celular</td>
+                <td>email</td>
+                <td>login</td>
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($agendamentos)):
+     foreach($agendamentos as $agen):?>
+            <tr>
+                <td><?php echo $agen->paciente_nome?></td>
+                <td><?php echo $agen->paciente_data_nasc?></td>
+                <td><?php echo $agen->paciente_cpf?></td>
+                <td><?php echo $agen->paciente_endereco?></td>
+                <td><?php echo $agen->paciente_forma_pgto?></td>
+                <td><?php echo $agen->paciente_telefone?></td>
+                <td><?php echo $agen->paciente_celular?></td>
+                <td><?php echo $agen->paciente_email?></td>
+                <td><?php echo $agen->paciente_login?></td>
+                <td>
+                    <a href="/paciente/editar/<?php echo $agen->paciente_id;?>"><i class="icon-pencil"></i>
+                    <a href="/paciente/remover/<?php echo $agen->paciente_id;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há paciente Cadastrado!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($agendamentos, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>

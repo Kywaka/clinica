@@ -1,0 +1,125 @@
+<?php
+
+echo "<h4>Atestado</h4>";
+echo $this->form()->openTag($form)
+?>
+
+<link rel="stylesheet" href=" <?php echo $this->basePath() . '/css/jquery-ui.css' ?>" />
+<script src=" <?php echo $this->basePath() . '/js/jquery-1.9.1.js' ?>"></script>
+<script src=" <?php echo $this->basePath() . '/js/jquery-ui.js' ?>"></script>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+    dateFormat: 'dd/mm/yy',
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    nextText: 'Próximo',
+    prevText: 'Anterior'
+    }      
+   );
+  });
+  </script>
+  
+  
+<?php echo $this->formElement($form->get('id')) ?>
+
+<table width=50% height=30% cellpadding=1 cellspacing=1>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('obs')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="obs" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('obs')) ?></td>
+                    </tr> 
+                </tbody>
+
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('data')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                        <td>
+                            <p><input name="data" type="text" id="datepicker" /></p>
+                           
+                        </td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('data')) ?></td>
+                    </tr> 
+                </tbody>
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('hora')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input type="time" name="hora" /></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('hora')) ?></td>
+                    </tr> 
+                </tbody>
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('nome_dentista')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="nome_dentista" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('nome_dentista')) ?></td>
+                    </tr> 
+                </tbody>
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('nome_paciente')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="nome_paciente" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('nome_paciente')) ?></td>
+                    </tr> 
+                </tbody>
+
+       
+</tr>
+
+<tbody>
+    <tr>
+        <td> <?php echo $this->formElement($form->get('submit')) ?></td>
+    </tr> 
+</tbody>
+
+</table>
+
+<?php echo $this->form()->closeTag($form) ?>

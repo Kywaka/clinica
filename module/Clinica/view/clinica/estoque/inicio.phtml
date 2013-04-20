@@ -1,0 +1,49 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nome:</td>
+                <td>Valor:</td>
+                <td>Quantidade:</td>                
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($estoques)):
+     foreach($estoques as $est):?>
+            <tr>
+                <td><?php echo $est->nome?></td>
+                <td><?php echo $est->valor?></td>
+                <td><?php echo $est->quantidade?></td>
+                
+                <td>
+                    <a href="/estoque/editar/<?php echo $est->id;?>"><i class="icon-pencil"></i>
+                    <a href="/estoque/remover/<?php echo $est->id;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há estoque Cadastrado!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($estoques, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>
+

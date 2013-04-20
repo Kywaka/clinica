@@ -1,0 +1,45 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Nome:</td>
+                <td>Valor Proposto:</td>
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($procedimentos)):
+     foreach($procedimentos as $proc):?>
+            <tr>
+                <td><?php echo $proc->nome?></td>
+                <td><?php echo $proc->cnpj?></td>
+                <td>
+                    <a href="/procedimento/editar/<?php echo $proc->idProcedimento;?>"><i class="icon-pencil"></i>
+                    <a href="/procedimento/remover/<?php echo $proc->idProcedimento;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há procedimentos Cadastrados!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($procedimentos, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>

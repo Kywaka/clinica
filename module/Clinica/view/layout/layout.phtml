@@ -1,0 +1,195 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <?php echo $this->headTitle('Clínica Odontológica'); ?>
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                ->prependStylesheet($this->basePath() . '/css/style.css')
+                ->prependStylesheet($this->basePath() . '/css/css3-buttons.css')
+                ->prependStylesheet($this->basePath() . '/css/skin/css3-buttons-black.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+        ?>
+        
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+    
+        // Toggle the dropdown menu's
+        $(".dropdown .button").click(function () {
+            $(this).parent().find('.dropdown-slider').slideToggle('fast');
+            $(this).find('span.toggle').toggleClass('active');
+            return false;
+        });
+    
+    }); // END document.ready
+    
+    // Close open dropdown slider/s by clicking elsewhwere on page
+    $(document).bind('click', function (e) {
+        if (e.target.id != $('.dropdown').attr('class')) {
+            $('.dropdown-slider').slideUp();
+            $('span.toggle').removeClass('active');
+        }
+    }); // END document.bind
+</script>
+        
+        
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js');
+        ?>
+    </head>
+    <body>
+
+        <div id="wrap">
+            <div style="height: 15px;" class="page-header">
+                <h2>Clínica Odontológica</h2>
+            </div>
+            <?php $tipo = "secretaria";
+                if($tipo == "secretaria") :?>
+            <nav>
+                
+<div class="buttons">
+  <div style="float: left;">
+  <a href="<?php echo $this->url('home')?>" class="button left"><span class="icon icon16"></span><span class="label">Inicio</span></a>
+  
+  <a href="#" class="button middle"><span class="icon icon1"></span><span class="label">Controlar Paciente</span></a>
+  <a href="#" class="button middle"><span class="icon icon2"></span><span class="label">Fazer Orçamento</span></a>
+  <div class="dropdown right">
+  <a href="/fornecedor/novo" class="button right"><span class="icon icon3"></span><span class="label">Gerenciar Paciente</span><span class="toggle"></span></a>
+    <div class="dropdown-slider">
+      <a href="#" class="ddm"><span class="icon icon81"></span><span class="label">Comunicar Paciente</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Notificar Paciente</span></a>
+    </div> <!-- /.dropdown-slider -->
+  </div> <!-- /.left -->
+ 
+  </div>
+  <div style="float: right;">
+  
+  <a href="#" class="button left"><span class="icon icon12">Profile</span></a>
+  <a href="<?php echo $this->url('home')?>" class="button right negative"><span class="icon icon30">Logout</span></a>
+  
+  </div> 
+</div>
+            </nav>
+            <?php endif;
+            if($tipo == "paciente") : ?>
+            <nav>
+               
+<div class="buttons">
+  <div style="float: left;">
+  <a href="<?php echo $this->url('home')?>" class="button left"><span class="icon icon16"></span><span class="label">Inicio</span></a>
+  
+  <a href="#" class="button middle"><span class="icon icon1"></span><span class="label">Visualizar Consulta</span></a>
+  <a href="#" class="button middle"><span class="icon icon2"></span><span class="label">Visualizar Histórico</span></a>
+  <a href="#" class="button right"><span class="icon icon2"></span><span class="label">Editar Senha</span></a>
+  </div>
+  <div style="float: right;">
+  
+  <a href="#" class="button left"><span class="icon icon12">Profile</span></a>
+  <a href="<?php echo $this->url('home')?>" class="button right negative"><span class="icon icon30">Logout</span></a>
+  
+  </div> 
+</div>
+            </nav>
+            <?php endif;
+            if($tipo == "dentista") :?>
+            <nav>
+               
+<div class="buttons">
+  <div style="float: left;">
+  <a href="<?php echo $this->url('home')?>" class="button left"><span class="icon icon16"></span><span class="label">Inicio</span></a>
+  
+  <a href="#" class="button middle"><span class="icon icon1"></span><span class="label">Requisição de Materiais</span></a>
+  <a href="#" class="button middle"><span class="icon icon2"></span><span class="label">Controle de Pacientes</span></a>
+  <div class="dropdown right">
+  <a href="/fornecedor/novo" class="button right"><span class="icon icon3"></span><span class="label">Acesso Dados Paciente</span><span class="toggle"></span></a>
+    <div class="dropdown-slider">
+      <a href="#" class="ddm"><span class="icon icon81"></span><span class="label">Visualizar Ficha</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Gerar Receituario</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Gerar Atestado</span></a>
+    </div> <!-- /.dropdown-slider -->
+  </div> <!-- /.left -->
+  
+  </div>
+  <div style="float: right;">
+  
+  <a href="#" class="button left"><span class="icon icon12">Profile</span></a>
+  <a href="<?php echo $this->url('home')?>" class="button right negative"><span class="icon icon30">Logout</span></a>
+  
+  </div> 
+</div>
+            </nav>
+            <?php endif;
+            if($tipo == "administracao"):?>
+            
+            <nav>
+               
+<div class="buttons">
+  <div style="float: left;">
+  <a href="<?php echo $this->url('home')?>" class="button left"><span class="icon icon16"></span><span class="label">Inicio</span></a>
+  
+  <a href="#" class="button middle"><span class="icon icon1"></span><span class="label">Contas a Pagar</span></a>
+  <a href="#" class="button middle"><span class="icon icon2"></span><span class="label">Contas a Receber</span></a>
+  <div class="dropdown right">
+  <a href="/fornecedor/novo" class="button middle"><span class="icon icon3"></span><span class="label">Gerenciar Fornecedores</span><span class="toggle"></span></a>
+    <div class="dropdown-slider">
+      <a href="#" class="ddm"><span class="icon icon81"></span><span class="label">Cadastro</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Remover</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Editar</span></a>
+    </div> <!-- /.dropdown-slider -->
+  </div> <!-- /.left -->
+  
+  <div class="dropdown right">
+  <a href="#" class="button middle"><span class="icon icon3"></span><span class="label">Gerenciar Funcionarios</span><span class="toggle"></span></a>
+    <div class="dropdown-slider">
+      <a href="/paciente/novo" class="ddm"><span class="icon icon81"></span><span class="label">Cadastro</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Remover</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Editar</span></a>
+    </div> <!-- /.dropdown-slider -->
+  </div> <!-- /.left -->
+  <div class="dropdown right">
+  <a href="#" class="button right"><span class="icon icon3"></span><span class="label">Estoque</span><span class="toggle"></span></a>
+    <div class="dropdown-slider">
+      <a href="#" class="ddm"><span class="icon icon81"></span><span class="label">Entrada</span></a>
+      <a href="#" class="ddm"><span class="icon icon37"></span><span class="label">Cadastro</span></a>
+    </div> <!-- /.dropdown-slider -->
+  </div> <!-- /.left -->
+  </div>
+  <div style="float: right;">
+  
+  <a href="#" class="button left"><span class="icon icon12">Profile</span></a>
+  <a href="<?php echo $this->url('home')?>" class="button right negative"><span class="icon icon30">Logout</span></a>
+  
+  </div> 
+</div>
+            </nav>
+            <?php endif;?>
+            
+            
+            <div class="container">
+
+                <div id="response" class="content">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div >
+                <p class="muted credit pull-left">Company <a href="">© 2013</a> - Desenvolvido por Diogenes, Valéria, Gilmar, Kleber e Jéssica.</p>
+            </div>
+        </div>
+
+        <?php echo $this->inlineScript(); ?>
+    </body>
+</html>

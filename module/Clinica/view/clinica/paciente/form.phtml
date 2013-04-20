@@ -1,0 +1,183 @@
+<?php 
+echo "<h4>Cadastro de Pacientes</h4>";
+echo $this->form()->openTag($form)?>
+<?php echo $this->formElement($form->get('paciente_id'))?>
+
+<table width=50% height=30% cellpadding=1 cellspacing=1>
+    <tr>
+        <td>
+        <table>
+            <thead>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('paciente_nome'))?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input name="paciente_nome" required="true" type="text"/></td>
+                </tr>        
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <?php echo $this->formElementErrors($form->get('paciente_nome'))?></td>
+                </tr> 
+            </tbody>
+
+            <thead>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('paciente_data_nasc'))?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input name="paciente_data_nasc" required="true" type="text"/></td>
+                </tr>        
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <?php echo $this->formElementErrors($form->get('paciente_data_nasc'))?></td>
+                </tr> 
+            </tbody>
+
+            <thead>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('paciente_cpf'))?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input name="paciente_cpf" required="true" type="text"/></td>
+                </tr>        
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <?php echo $this->formElementErrors($form->get('paciente_cpf'))?></td>
+                </tr> 
+            </tbody>
+
+            <thead>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('paciente_endereco'))?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input name="paciente_endereco" required="true" type="text"/></td>
+                </tr>        
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <?php echo $this->formElementErrors($form->get('paciente_endereco'))?></td>
+                </tr> 
+            </tbody>
+
+            <thead>
+                <tr>
+                    <td><?php echo $this->formLabel($form->get('paciente_forma_pgto'))?></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input name="paciente_forma_pgto" required="true" type="text"/></td>
+                </tr>        
+            </tbody>
+            <tbody>
+                <tr>
+                    <td> <?php echo $this->formElementErrors($form->get('paciente_forma_pgto'))?></td>
+                </tr> 
+            </tbody>
+        </table>
+</td>
+    <td>
+        <table>
+            <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('paciente_telefone'))?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <input name="paciente_telefone" required="true" type="text"/></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('paciente_telefone'))?></td>
+        </tr> 
+    </tbody>
+    
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('paciente_celular'))?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <input name="paciente_celular" required="true" type="text"/></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('paciente_celular'))?></td>
+        </tr> 
+    </tbody>
+    
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('paciente_email'))?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <input name="paciente_email" required="true" type="text"/></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('paciente_email'))?></td>
+        </tr> 
+    </tbody>
+    
+     <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('paciente_login'))?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <input name="paciente_login" required="true" type="text"/></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('paciente_login'))?></td>
+        </tr> 
+    </tbody>
+    
+     <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('paciente_senha'))?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <input name="paciente_senha" required="true" type="text"/></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('paciente_senha'))?></td>
+        </tr> 
+    </tbody>
+        </table>
+    </td>
+</tr>
+<tr>
+    <tbody>
+        <tr>
+            <td><input type="submit" name="submit" value="Salvar"/></td>
+        </tr> 
+    </tbody>
+</tr>
+</table>
+<?php echo $this->form()->closeTag($form)?>

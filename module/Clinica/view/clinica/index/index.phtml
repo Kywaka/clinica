@@ -1,0 +1,103 @@
+<?php
+echo "<h4>Login</h4>";
+echo $this->form()->openTag($form)
+?>
+<?php echo $this->formElement($form->get('user_id')) ?>
+
+<table width=50% height=30% cellpadding=1 cellspacing=1>
+
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('username')) ?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?php echo $this->formElement($form->get('username')) ?></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('username')) ?></td>
+        </tr> 
+    </tbody>
+
+    <thead>
+        <tr>
+            <td><?php echo $this->formLabel($form->get('password')) ?></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElement($form->get('password')) ?></td>
+        </tr>        
+    </tbody>
+    <tbody>
+        <tr>
+            <td> <?php echo $this->formElementErrors($form->get('password')) ?></td>
+        </tr> 
+    </tbody>
+    <tr>
+    <tbody>
+        <tr>
+            <td><input type="submit" name="submit" value="Login"/></td>
+        </tr> 
+    </tbody>
+</tr>
+</table>
+<?php echo $this->form()->closeTag($form) ?>
+
+
+<!--<head>
+        <meta charset="UTF-8" />
+       
+        <title>Login</title>
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/stylelog.css" />
+                <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img src="images/Clinica-logo.gif" width="190" height="190" style="padding-left:35px;"/>
+                <a href='/paciente'> Sistema </a>
+                
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                                <h1>Login</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" >Usuário</label>
+                                    <input id="username" name="username" required="required" type="text"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p">Senha</label>
+                                    <input id="password" name="password" required="required" type="password"/> 
+                                </p>
+                                <p> 
+                                    <select name="opção" id="opção">
+                                        <option value="paciente">Paciente</option>
+                                        <option value="funcionario">Funcionário</option>
+                                        <option value="dentista">Dentista</option>
+                                    </select>
+                                     
+                                </p>
+                                <p class="keeplogin"> 
+                                                                        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                                                                        <label for="loginkeeping">Mantenha-me logado</label>
+                                                                </p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Entrar" />
+                                    <input type="reset" value="Apagar" /> 
+                                                                </p>
+                            </form>
+                        </div>		
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>-->

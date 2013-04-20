@@ -1,0 +1,127 @@
+<?php
+echo "<h4>Cadastro de Fornecedores</h4>";
+echo $this->form()->openTag($form)
+?>
+<?php echo $this->formElement($form->get('id')) ?>
+
+<table width=50% height=30% cellpadding=1 cellspacing=1>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('nome')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="nome" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('nome')) ?></td>
+                    </tr> 
+                </tbody>
+
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('cnpj')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="cnpj" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('cnpj')) ?></td>
+                    </tr> 
+                </tbody>
+
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('endereco')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="endereco" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('endereco')) ?></td>
+                    </tr> 
+                </tbody>
+
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('telefone1')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="telefone1" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('telefone1')) ?></td>
+                    </tr> 
+                </tbody>
+
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('telefone2')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="telefone2" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('telefone2')) ?></td>
+                    </tr> 
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table style="vertical-align: top">
+                <tr>
+                    <td style="vertical-align: top">
+                <thead>
+                    <tr>
+                        <td><?php echo $this->formLabel($form->get('email')) ?></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input name="email" required="true" type="text"/></td>
+                    </tr>        
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <?php echo $this->formElementErrors($form->get('email')) ?></td>
+                    </tr> 
+                </tbody>
+            </tbody>
+            </td>
+            </tr>
+
+</table>
+</td>
+</tr>
+
+<tbody>
+    <tr>
+        <td> <?php echo $this->formElement($form->get('submit')) ?></td>
+    </tr> 
+</tbody>
+
+</table>
+
+<?php echo $this->form()->closeTag($form) ?>

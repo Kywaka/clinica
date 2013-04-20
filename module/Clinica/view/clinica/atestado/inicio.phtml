@@ -1,0 +1,53 @@
+<h3><?php echo $titulo; ?></h3>
+
+<?php if(count($messages)):?>
+    <?php foreach($messages as $value):
+        $key = key($value);
+        $message = current($value);
+    ?>
+<div class="alert alert-<?php echo $key?>">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $message; ?>
+    </div>
+    <?php endforeach;?>
+<?php endif;?>
+
+<div class="well">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>obs:</td>
+                <td>Data:</td>
+                <td>Hora</td>
+                <td>Dentista:</td> 
+                <td>Paciente:</td> 
+                <td>Opções</td>
+            </tr>
+        </thead> 
+        <tbody>
+            <?php if(count($atestados)):
+     foreach($atestados as $ate):?>
+            <tr>
+                <td><?php echo $ate->obs?></td>
+                <td><?php echo $ate->data?></td>
+                <td><?php echo $ate->hora?></td>
+                <td><?php echo $ate->nome_dentista?></td>
+                <td><?php echo $ate->nome_paciente?></td>
+                
+                <td>
+                    <a href="/atestado/editar/<?php echo $ate->id;?>"><i class="icon-pencil"></i>
+                    <a href="/atestado/remover/<?php echo $ate->id;?>"><i class="icon-remove-sign"></i>
+                </td>
+            </tr>
+            
+            <?php endforeach; 
+            else: ?>
+            <tr>
+                <td colspan="4">Não há atestado Cadastrado!</td>
+            </tr>
+            <?php endif; ?>        
+        </tbody>
+    </table>
+    <?php echo $this->paginationControl($atestados, 'Sliding', 'clinica/partials/paginator/control.phtml')?>
+</div>
+
